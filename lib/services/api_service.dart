@@ -9,6 +9,11 @@ import '../models/user.dart';
 class ApiService {
   static const String _baseUrl = 'https://jsonplaceholder.typicode.com';
   static const Duration _timeout = Duration(seconds: 10);
+  static final ApiService _instance = ApiService._internal();
+  factory ApiService() => _instance;
+  ApiService._internal();
+  // -----------------------------------------------------
+
   // GET /users
   Future<List<User>> getUsers() async {
     try {
